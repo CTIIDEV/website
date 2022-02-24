@@ -1,0 +1,146 @@
+.page-wrapper i {
+    width: 64px;
+    margin: auto;
+    height: 2px;
+    display: block;
+    background: #16d9e3;
+    background: -webkit-linear-gradient(left, #16d9e3 0%, #1677e3 100%);
+    background: linear-gradient(to right, #16d9e3 0%, #1677e3 100%);
+    margin-bottom: 2rem;
+}
+
+.page-wrapper .home {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-services, .home-video, .home-customers {
+    padding: 128px 24px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.home-services .text-wrapper, .home-video .text-wrapper, .home-customers .text-wrapper {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.service-wrapper {
+    text-align: center;
+}
+
+.service-wrapper .service-card {
+    box-shadow: 5px 8px 24px 5px rgba(208, 216, 243, 0.6);
+    transition: box-shadow .3s;
+}
+
+.service-wrapper .service-card:hover {
+    box-shadow: 5px 8px 24px 5px rgba(181, 195, 243, 0.9);
+}
+
+.service-wrapper .text-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.video-wrapper {
+    height: 500px;
+    min-height: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-wrapper div {
+    height: 100%;
+}
+
+.section-home-customers {
+    min-height: 664px;
+    background: #F7F7F7;
+}
+
+.section-home-customers .ant-row {
+    flex-flow: row wrap;
+    position: relative;
+    height: auto;
+    margin-right: 0;
+    margin-left: 0;
+    zoom: 1;
+    display: block;
+    box-sizing: border-box;
+}
+
+.customers-logo-wrapper {
+    margin-top: 96px;
+}
+
+.customers-logo {
+    background: grey;
+    height: 68px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 68px;
+}
+
+.customers-logo img {
+    
+    max-width: 94%;
+    display: inline-block;
+    
+    vertical-align: middle;
+    border-style: none;
+}
+
+========
+
+.ant-layout-footer {
+    background: linear-gradient(135deg, #172a74, #07a33e) !important;
+    padding: 24px 250px !important;
+}
+
+.footer-columns {
+    padding: 1rem;
+}
+
+.social-media-heading, .social-media-list {
+    display: block;
+}
+
+.social-media-heading {
+    margin-bottom: 1rem;
+}
+
+.social-media-list {
+    margin-right: 1rem !important;
+}
+
+.social-media-lists .facebook {
+    background: #43609C !important;
+}
+
+.social-media-lists .instagram {
+    background: linear-gradient(#F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4) !important;
+}
+
+.footer-infos {
+    margin-bottom: 1.5rem;
+}
+
+.footer-newsletter {
+    background: #FFF;
+    padding: 1rem;
+}
+
+.footer-row-brands {
+    padding: 3rem;
+}
+
+.footer-row-brand {
+    text-align: center;
+}
+
+.footer-row-brand img {
+    max-width: 100%;
+    height: 100px;
+}

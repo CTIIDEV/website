@@ -1,0 +1,483 @@
+import { Component } from 'react';
+import { Button, Form, Typography, Input, DatePicker, Upload, message, Checkbox } from 'antd';
+import '../../css/Agency.css'
+import GeneralAgentService from '../../services/GeneralAgent.service';
+const { Title } = Typography;
+class GeneralAgent extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      agentTitle: "",
+      agentName: "",
+      agentEmail: "",
+      agentPhoneNum: "",
+      agentAddress: "",
+      agentKTP: "",
+      agentNPWP: "",
+      agentAAUI: "",
+      agentAAUITarget: "",
+      bankName: "",
+      bankAccName: "",
+      bankAccId: "",
+      infoPlacement: "",
+      infoTargetProperty: "",
+      infoTargetMV: "",
+      infoTargetMarineCargo: "",
+      infoTargetConstruction: "",
+      infoTargetOther: "",
+      infoPicture: "",
+      infoKTP: "",
+      infoAAUI: "",
+      infoNPWP: "",
+      infoBankBook: "",
+      infoOther: "",
+      agreeCompleteDocument: false,
+      agreeRegulation: false,
+      agreeCreditPeriod: false,
+      agreeValidInformation: false,
+      availabilityAgent: ""
+    }
+  }
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(e.target.name + ": " + e.target.value)
+    this.setState({
+      [name]: value
+    })
+  }
+  handleChecked = (e) => {
+    const { name, checked } = e.target;
+    console.log(e.target.name + ": " + e.target.checked);
+    this.setState({
+      [name]: checked
+    })
+  }
+  handleUploadPicture = (e) => {
+    const file = e.target.files[0];
+    const base64 = this.convertBase64(file);
+    this.setState({
+      infoPicture: base64
+    })
+  }
+  handleUploadKTP = (e) => {
+    const file = e.target.files[0];
+    const base64 = this.convertBase64(file);
+    this.setState({
+      infoKTP: base64
+    })
+  }
+  handleUploadAAUI = (e) => {
+    const file = e.target.files[0];
+    const base64 = this.convertBase64(file);
+    this.setState({
+      infoAAUI: base64
+    })
+  }
+  handleUploadNPWP = (e) => {
+    const file = e.target.files[0];
+    const base64 = this.convertBase64(file);
+    this.setState({
+      infoNPWP: base64
+    })
+  }
+  handleUploadBankBook = (e) => {
+    const file = e.target.files[0];
+    const base64 = this.convertBase64(file);
+    this.setState({
+      infoBankBook: base64
+    })
+  }
+  handleUploadOther = (e) => {
+    const file = e.target.files[0];
+    const base64 = this.convertBase64(file);
+    this.setState({
+      infoOther: base64
+    })
+  }
+  convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      }
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    })
+  }
+  handleSubmit = () => {
+    var data = {
+      agentTitle: this.state.agentTitle,
+      agentName: this.state.agentName,
+      agentEmail: this.state.agentEmail,
+      agentPhoneNum: this.state.agentPhoneNum,
+      agentAddress: this.state.agentAddress,
+      agentKTP: this.state.agentKTP,
+      agentNPWP: this.state.agentNPWP,
+      agentAAUI: this.state.agentAAUI,
+      agentAAUITarget: this.state.agentAAUITarget,
+      bankName: this.state.bankName,
+      bankAccName: this.state.bankAccName,
+      bankAccId: this.state.bankAccId,
+      infoPlacement: this.state.infoPlacement,
+      infoTargetProperty: this.state.infoTargetProperty,
+      infoTargetMV: this.state.infoTargetMV,
+      infoTargetMarineCargo: this.state.infoTargetMarineCargo,
+      infoTargetConstruction: this.state.infoTargetConstruction,
+      infoTargetOther: this.state.infoTargetOther,
+      infoPicture: this.state.infoPicture,
+      infoKTP: this.state.infoKTP,
+      infoAAUI: this.state.infoAAUI,
+      infoNPWP: this.state.infoNPWP,
+      infoBankBook: this.state.infoBankBook,
+      infoOther: this.state.infoOther,
+      agreeCompleteDocument: this.state.agreeCompleteDocument,
+      agreeRegulation: this.state.agreeRegulation,
+      agreeCreditPeriod: this.state.agreeCreditPeriod,
+      agreeValidInformation: this.state.agreeValidInformation,
+      availabilityAgent: this.state.availabilityAgent
+    }
+    console.log(data)
+    GeneralAgentService.create(data)
+      .then(response => {
+        this.setState({
+          agentTitle: response.data.agentTitle,
+          agentName: response.data.agentName,
+          agentEmail: response.data.agentEmail,
+          agentPhoneNum: response.data.agentPhoneNum,
+          agentAddress: response.data.agentAddress,
+          agentKTP: response.data.agentKTP,
+          agentNPWP: response.data.agentNPWP,
+          agentAAUI: response.data.agentAAUI,
+          agentAAUITarget: response.data.agentAAUITarget,
+          bankName: response.data.bankName,
+          bankAccName: response.data.bankAccName,
+          bankAccId: response.data.bankAccId,
+          infoPlacement: response.data.infoPlacement,
+          infoTargetProperty: response.data.infoTargetProperty,
+          infoTargetMV: response.data.infoTargetMV,
+          infoTargetMarineCargo: response.data.infoTargetMarineCargo,
+          infoTargetConstruction: response.data.infoTargetConstruction,
+          infoTargetOther: response.data.infoTargetOther,
+          infoPicture: response.data.infoPicture,
+          infoKTP: response.data.infoKTP,
+          infoAAUI: response.data.infoAAUI,
+          infoNPWP: response.data.infoNPWP,
+          infoBankBook: response.data.infoBankBook,
+          infoOther: response.data.infoOther,
+          agreeCompleteDocument: response.data.agreeCompleteDocument,
+          agreeRegulation: response.data.agreeRegulation,
+          agreeCreditPeriod: response.data.agreeCreditPeriod,
+          agreeValidInformation: response.data.agreeValidInformation,
+          availabilityAgent: response.data.availabilityAgent
+        })
+        console.log(response.data);
+        this.setState({
+          agentTitle: "",
+          agentName: "",
+          agentEmail: "",
+          agentPhoneNum: "",
+          agentAddress: "",
+          agentKTP: "",
+          agentNPWP: "",
+          agentAAUI: "",
+          agentAAUITarget: "",
+          bankName: "",
+          bankAccName: "",
+          bankAccId: "",
+          infoPlacement: "",
+          infoTargetProperty: "",
+          infoTargetMV: "",
+          infoTargetMarineCargo: "",
+          infoTargetConstruction: "",
+          infoTargetOther: "",
+          infoPicture: "",
+          infoKTP: "",
+          infoAAUI: "",
+          infoNPWP: "",
+          infoBankBook: "",
+          infoOther: "",
+          agreeCompleteDocument: false,
+          agreeRegulation: false,
+          agreeCreditPeriod: false,
+          agreeValidInformation: false,
+          availabilityAgent: ""
+        })
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }
+  render() {
+    return (
+      <div className="page-wrapper section-general-agent-form">
+        <div className="general-agent-form-container">
+          <div className="text-wrapper">
+            <Title level={2}>
+              Form Pengajuan Keagenan Asuransi General <br />
+              PT. China Taiping Insurance Indonesia
+            </Title>
+          </div>
+          <StepForm />
+          <Form
+            // labelCol={{ span: 8 }}
+            // wrapperCol={{ span: 8 }}
+            layout="vertical"
+          >
+            <Form.Item label="Titel Agen" required>
+              <select
+                name="agentTitle"
+                value={this.state.agentTitle}
+                onChange={this.handleChange}
+              >
+                <option value=""></option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+              </select>
+            </Form.Item>
+            <Form.Item label="Nama Agen" required>
+              <Input
+                name="agentName"
+                value={this.state.agentName}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Email Agen" required>
+              <Input
+                name="agentEmail"
+                value={this.state.agentEmail}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="No. Telepon Agen" required>
+              <Input
+                name="agentPhoneNum"
+                value={this.state.agentPhoneNum}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Alamat Agen" required>
+              <Input.TextArea cols={3}
+                name="agentAddress"
+                value={this.state.agentAddress}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="No. KTP Agen" required>
+              <Input
+                name="agentKTP"
+                value={this.state.agentKTP}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="No. NPWP Agen" required>
+              <Input
+                name="agentNPWP"
+                value={this.state.agentNPWP}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="No. AAUI Agen">
+              <Input
+                name="agentAAUI"
+                value={this.state.agentAAUI}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Target Sertifikasi AAUI">
+              <Input type="month"
+                name="agentAAUITarget"
+                value={this.state.agentAAUITarget}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            
+            <Form.Item label="Nama Bank" required>
+              <Input
+                name="bankName"
+                value={this.state.bankName}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Nama Atas No. Rekening" required>
+              <Input
+                name="bankAccName"
+                value={this.state.bankAccName}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="No. Rekening" required>
+              <Input
+                name="bankAccId"
+                value={this.state.bankAccId}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            
+            <Form.Item label="Penempatan Kantor">
+              <select
+                name="infoPlacement"
+                value={this.state.infoPlacement}
+                onChange={this.handleChange}
+              >
+                <option value=""></option>
+                <option value="BDDA">Head Office (BDD A)</option>
+                <option value="BDDB">Head Office (BDD B)</option>
+                <option value="BDG">Bandung</option>
+                <option value="TNG">BSD (Tangerang)</option>
+                <option value="JKTKEDOYA">Kedoya</option>
+                <option value="JKTKOTA">Kota (Jakarta)</option>
+                <option value="MDN">Medan</option>
+                <option value="SMG">Semarang</option>
+                <option value="SBY">Surabaya</option>
+              </select>
+            </Form.Item>
+            <Form.Item label="Target Produksi Properti">
+              <Input
+                name="infoTargetProperty"
+                value={this.state.infoTargetProperty}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Target Produksi MV">
+              <Input
+                name="infoTargetMV"
+                value={this.state.infoTargetMV}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Target Produksi Marine Cargo">
+              <Input
+                name="infoTargetMarineCargo"
+                value={this.state.infoTargetMarineCargo}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Target Produksi Konstruksi">
+              <Input
+                name="infoTargetConstruction"
+                value={this.state.infoTargetConstruction}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Target Produksi Aneka">
+              <Input
+                name="infoTargetOther"
+                value={this.state.infoTargetOther}
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item label="Upload Foto">
+              <Input
+                type="file"
+                name="infoPicture"
+                value={this.infoPicture}
+                onChange={this.handleUploadPicture}
+              />
+            </Form.Item>
+            <Form.Item label="Upload KTP Agen atau Penanggung Jawab">
+              <Input
+                type="file"
+                name="infoKtp"
+                value={this.infoKTP}
+                onChange={this.handleUploadKTP}
+              />
+            </Form.Item>
+            <Form.Item name="upload_aaui" label="Upload AAUI">
+              <Input
+                type="file"
+                name="infoAAUI"
+                value={this.infoAAUI}
+                onChange={this.handleUploadAAUI}
+              />
+            </Form.Item>
+            <Form.Item name="upload_npwp" label="Upload NPWP Agen atau Badan Usaha">
+              <Input
+                type="file"
+                name="infoNPWP"
+                value={this.infoNPWP}
+                onChange={this.handleUploadNPWP}
+              />
+            </Form.Item>
+            <Form.Item name="upload_bank_account" label="Upload Buku Tabungan">
+              <Input
+                type="file"
+                name="infoBankBook"
+                value={this.infoBankBook}
+                onChange={this.handleUploadBankBook}
+              />
+            </Form.Item>
+            <Form.Item name="upload_other_certificate" label="Upload Sertifikat Lainnya">
+              <Input
+                type="file"
+                name="infoOther"
+                value={this.infoOther}
+                onChange={this.handleUploadOther}
+              />
+            </Form.Item>
+            <Form.Item label="Agen bersedia melengkapi dokumen pendukung dalam rangka registrasi keagenan PT China Taiping Insurance Indonesia">
+              <Checkbox
+                name="agreeCompleteDocument"
+                value={this.state.agreeCompleteDocument}
+                onChange={this.handleChecked}
+              >Ya, saya bersedia</Checkbox>
+            </Form.Item>
+            <Form.Item label="Agen bersedia mematuhi seluruh ketentuan kegaenan PT China Taiping Insurance Indonesia">
+              <Checkbox
+                name="agreeRegulation"
+                value={this.state.agreeRegulation}
+                onChange={this.handleChecked}
+                value="agree">Ya, saya bersedia</Checkbox>
+            </Form.Item>
+            <Form.Item label="Agen diberikan Credit Period 30 Hari">
+              <Checkbox
+                name="agreeCreditPeriod"
+                value={this.state.agreeCreditPeriod}
+                onChange={this.handleChecked}
+                value="agree">Ya, saya bersedia</Checkbox>
+            </Form.Item>
+            <Form.Item label="Informasi yang disampaikan merupakan informasi yang benar dan valid">
+              <Checkbox
+                name="agreeValidInformation"
+                value={this.state.agreeValidInformation}
+                onChange={this.handleChecked}
+                value="agree">Ya, jika terdapat kesengajaan memberikan informasi yang tidak benar, Agen bersedia bertanggung jawab</Checkbox>
+            </Form.Item>
+            <Form.Item label="Kesediaan Menjadi Agen PT China Taiping Insurance Indonesia">
+              <select
+                name="availabilityAgent"
+                value={this.state.availabilityAgent}
+                onChange={this.handleChange}
+                style={{width: "100%"}}
+              >
+                <option value="">
+                </option>
+                <option value="No AAUI, willing to take certification">
+                  Agen belum mempunyai Kartu AAUI dan akan mengikuti sertifikasi keagenan untuk PT China Taiping Insurance Indonesia pada kesempatan pertama
+                </option>
+                <option value="Has AAUI, willing to be CTII agent">
+                  Agen sudah mempunyai Kartu AAUI untuk Asuransi lain dan bersedia menjadi Agen PT China Taiping Insurance Indonesia pada periode keagenan selanjutnya
+                </option>
+              </select>
+            </Form.Item>
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                onClick={this.handleSubmit}
+              >
+                Submit
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default GeneralAgent;

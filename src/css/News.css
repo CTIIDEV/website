@@ -1,0 +1,27 @@
+.section-news .news-new {
+  height: 700px;
+}
+
+.section-news .news-new .news-card {
+    /* height: 450px; */
+    height: 100%;
+}
+
+.section-news .news-new .news-card .text-wrapper {
+    text-align: left;
+}
+
+.section-news .news-new .news-card .ant-btn-ghost {
+    background: linear-gradient(90deg, #017CB7 0%, #00B776 100%);
+    border: none;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.section-news .news-new .news-card .ant-btn-ghost:hover {
+    background: #FFF;
+    border: 1px solid #017CB7;
+    color: #017CB7;
+}
+
+@media only screen and (max-width: 767.99px) {}

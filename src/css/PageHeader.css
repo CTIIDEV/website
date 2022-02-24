@@ -1,0 +1,121 @@
+.layout-header {
+  display: flex;
+  padding: 0 40px;
+  border-bottom: solid 1px #e8e8e8;
+  overflow: auto;
+  background: white;
+}
+
+.header-logo {
+  flex: 1;
+}
+
+.header-logo a {
+  display: inline-block;
+  font-size: 20px;
+  padding: 10px 0px;
+  text-transform: capitalize;
+}
+
+.header-logo a img {
+  min-width: 100px;
+  max-width: 100px;
+}
+
+.header-content {
+  flex: 1;
+  align-self: center;
+}
+
+.header-content .ant-menu-item {
+  padding: 0px 5px;
+}
+
+.header-content .ant-menu-submenu-title {
+  padding: 10px 20px;
+}
+
+.header-content .ant-menu-item a,
+.header-content .ant-menu-submenu-title a {
+  padding: 10px 15px;
+}
+
+.header-content .ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.header-content .content-menu {
+  float: right;
+}
+
+.header-content .content-button {
+  float: right;
+  height: 32px;
+  display: none;
+  background: none;
+}
+
+.ant-drawer-body {
+  padding: 0;
+}
+
+.content-button > span {
+  display: block;
+}
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item,
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu {
+  display: inline-block;
+  width: 100%;
+}
+
+.ant-drawer-body .ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover {
+  border-bottom-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .layout-header {
+    padding: 0 40px;
+  }
+
+  .header-content .content-button {
+    background: #fff;
+    border: none;
+    display: inline-block;
+  }
+
+  .header-content .content-button .anticon-menu {
+    color: #017cb7;
+  }
+
+  .header-content .content-button:hover {
+    background: linear-gradient(90deg, #017cb7 0%, #00b776 100%);
+    border: none;
+    display: inline-block;
+  }
+
+  .content-menu {
+    display: none;
+  }
+
+  .header-content .ant-menu-item,
+  .header-content .ant-menu-submenu-title {
+    padding: 1px 20px;
+  }
+
+  .content-drawer .ant-drawer-header {
+    background: linear-gradient(90deg, #017cb7 0%, #00b776 100%);
+  }
+
+  .content-drawer .ant-drawer-header .ant-drawer-title {
+    color: #fff;
+  }
+
+  .content-drawer .drawer-menu {
+    border-right: none;
+  }
+}

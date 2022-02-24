@@ -1,0 +1,26 @@
+.form-contact {
+  background: #fff;
+  padding: 80px;
+}
+/* 
+.contact-form {
+  padding: 64px 64px 128px 64px;
+  max-width: 1200px;
+  margin: auto;
+} */
+
+.content__form-contact {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 70%;
+}
+
+@media only screen and (max-width: 767px) {
+  .contact-form {
+    padding: 80px 20px;
+  }
+
+  .content__form-contact {
+    width: 100%;
+  }
+}

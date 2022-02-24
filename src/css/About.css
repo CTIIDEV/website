@@ -1,0 +1,49 @@
+/* .section-company-profile,
+.section-financial-report,
+.section-policy {
+    padding: 128px 24px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+} */
+
+.about-company-profile,
+.about-policy,
+.about-financial-report {
+  padding: 80px;
+}
+
+.content-profile-img {
+  width: 50% !important;
+  margin: 0 auto;
+}
+
+.content-company-video .content-home-video {
+  margin-bottom: 0px !important;
+}
+
+.about-policy .section-content .table__col-item .col-item__button,
+.about-financial-report .section-content .table__col-item .col-item__button {
+  background: #4d9ce6;
+  border: 1px solid #4d9ce6 !important;
+  font-weight: bold;
+}
+
+.about-policy .section-content .table__col-item .col-item__button:hover,
+.about-financial-report .section-content .table__col-item .col-item__button:hover {
+  background: #00b875;
+  border: 1px solid #00b875 !important;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  .about-company-profile,
+  .about-policy,
+  .about-financial-report {
+    /* padding: 40px 20px; */
+    padding: 80px 40px;
+  }
+  .content-profile-img {
+    width: 70% !important;
+  }
+}

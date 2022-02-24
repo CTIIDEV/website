@@ -1,0 +1,75 @@
+.claiming-procedure,
+.claiming-forms,
+.claim-report,
+.claim-motor-vehicle,
+.section-motor-vehicle-form {
+  padding: 80px;
+}
+
+.claiming-procedure {
+  padding-bottom: 40px;
+}
+
+.claim-procedure .content-procedure-instructions {
+  margin-bottom: 40px;
+}
+
+.claim-procedure .content-procedure-instructions .top-title,
+.claim-procedure .content-procedure-links .top-title {
+  color: #0062b3 !important;
+  margin-bottom: 20px;
+}
+
+.claiming-forms {
+  padding-top: 40px;
+}
+
+.claiming-forms .section-content .content-row .{
+
+}
+
+/* .ant-layout-header {
+    position: inherit;
+}
+
+.section-claim-procedure {
+    padding: 128px 24px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-motor-vehicle-form,  
+.section-report-claim {
+    background: #F3F7F6;
+    max-width: 100% !important;
+}
+
+.motor-vehicle-form-container,
+.report-claim-container {
+    padding: 64px 32px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.motor-vehicle-form-container .ant-form-vertical {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.motor-vehicle-form-container .ant-form-vertical .ant-steps {
+    margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 767.99px) {
+    .motor-vehicle-form-container .ant-form-vertical {
+        width: 100%;
+    }
+} */
+
+@media only screen and (max-width: 767px) {
+  .claim-procedure,
+  .claim-report,
+  .section-motor-vehicle-form {
+    padding: 80px 40px;
+  }
+}

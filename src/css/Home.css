@@ -1,0 +1,124 @@
+/* 
+.page-wrapper .home {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+} 
+
+.home-services, .home-video, .home-customers {
+    padding: 128px 24px;
+    max-width: 1200px;
+    margin: auto;
+} 
+*/
+
+/* .home-services .text-wrapper, .home-video .text-wrapper, .home-customers .text-wrapper {
+    margin-bottom: 2rem;
+} */
+
+/**/
+
+.home-banner {
+  max-width: 100% !important;
+}
+
+.carousel-slide__img {
+  background-size: cover;
+  max-width: 100%;
+}
+
+/**/
+
+.home-services,
+.home-locations,
+.home-video,
+.home-customers {
+  padding: 80px;
+  background: #fff;
+}
+
+/**/
+
+.home-services .content-row .content-row__col-item {
+  margin-bottom: 0;
+}
+
+.col-item__card:hover {
+  box-shadow: 0px 0px 10px 10px hsla(199, 81%, 54%, 0.426);
+  transition: box-shadow 0.3s;
+}
+
+.col-item__card .ant-card-cover,
+.col-item__card .ant-card-body {
+  padding: 20px;
+}
+
+.col-item__card .ant-card-body {
+  text-align: center;
+}
+
+.col-item__card .card-title {
+  color: #000 !important;
+}
+
+.col-item__card .card__button {
+  background: #4d9ce6;
+  border: 1px solid #4d9ce6 !important;
+  font-weight: bold;
+}
+
+.col-item__card .card__button:hover {
+  background: #00b875;
+  border: 1px solid #00b875 !important;
+  font-weight: bold;
+}
+
+/**/
+.home-video .section-content {
+  height: 500px;
+}
+
+.home-video .section-content .content-video {
+  height: 100%;
+}
+/**/
+
+.home-customers .content-row__col-item {
+  align-items: center;
+  display: flex !important;
+  height: 100px;
+  justify-content: center;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.home-customers .content-row__col-item img {
+  display: inline-block;
+  max-height: 100%;
+  max-width: 94%;
+  height: auto;
+  width: 50%;
+}
+
+@media only screen and (max-width: 767px) {
+  .home-services,
+  .home-locations,
+  .home-customers,
+  .home-video {
+    padding: 80px 40px;
+  }
+
+  .home-services .content-row {
+    width: 80%;
+    margin: auto !important;
+  }
+
+  .content-row__col-item {
+    margin-bottom: 40px !important;
+  }
+
+  .home-video .section-content {
+    /* height: inherit; */
+    height: 350px;
+  }
+}
